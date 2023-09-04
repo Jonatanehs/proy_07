@@ -19,7 +19,7 @@ const main = async ( ) => {
     const medio = 'carro'
     functions.interfazMedioTransporte(medio);
 
-
+/*
     const cantidad = '3';
     const precio = '15000';
     functions.interfazFacturaProducto(cantidad, precio);
@@ -37,12 +37,24 @@ const main = async ( ) => {
     functions.interfaznumerosPares(par);
 
     const number = 5;
-    functions.interfazTablaMultiplicar(number)
+    functions.interfazTablaMultiplicar(number);
 
     const caracte = 'J';
     const numer = 4;
     functions.interfazRepetirCaracter(caracte, numer);
 
+    const base = 5;
+    functions.interfazContadorBase(base);
+
+    const clave = ['clave1','cl', 'cla3'];
+    functions.interfazIncioSesion(clave);
+
+    const numeros = [8,9,3,56,350];
+    functions.interfazMinimoMaximo(numeros);
+
+    const numeros1 = [0, 5, 4, 2, 1, 6];
+    functions.interfazNumerosPares2(numeros1)
+    */
 };
 
 
