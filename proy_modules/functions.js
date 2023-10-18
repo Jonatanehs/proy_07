@@ -1,5 +1,3 @@
-const { blue } = require("colors");
-
 const functions = { };
 
 const signo = (numero) => {
@@ -15,8 +13,8 @@ const interfazSigno = (numero) => {
     console.log(`*                ` .yellow    +    `FUNCIÓN SIGNO` .bgBlue        
                  +  `           *`.yellow);
     console.log(`******************************************`.yellow);
-    console.log(`*         `.blue   +  `El número ${numero} es ` + " " + functions.signo(numero)    
-     +  `       *`.blue);
+    console.log(`*         `.blue   +  `El número ` + `${numero}`.yellow + ` es ` +
+     " " + functions.signo(numero)    +  `       *`.blue);
     console.log(`******************************************\n`.red);
 }
 
@@ -86,20 +84,22 @@ if (medio === 'avion' || medio === "flota") {
     }
 
 
-    const facturaProducto = (cantidad, precio) => {
-        const descuento = cantidad * precio * 0.10; 
-        const total = cantidad * precio - descuento;
+    const facturaProducto = (cantidad, precio, descuento) => {
+        const descuent = descuento / 100;
+        const descuentoTotal = cantidad * precio * descuent; 
+        const total = cantidad * precio - descuentoTotal;
         return total;
     };
 
-const interfazFacturaProducto = (cantidad, precio) =>{
-    console.log(`******************************************`);
-    console.log(`*             factura                    *`);
-    console.log(`******************************************`);
-    console.log(`*`  + `la   ${cantidad}  prendas ` +  `con  ${precio} por und     *
-    ` 
-    + '*con descuento del 10% =' + functions.facturaProducto(cantidad, precio) + `     *`);
-    console.log(`******************************************\n`);
+const interfazFacturaProducto = (cantidad, precio, descuento) =>{
+    console.log(`________________________________________`.cyan);
+    console.log(`^`.red+ `              factura                 `.grey + `^`.red);
+    console.log(`----------------------------------------`.cyan);
+    console.log(`^`.yellow  + `  La   ` + `${cantidad}`.bgBlue + `  prendas ` +  
+    `con  ` + `${precio}`.bgGreen + ` por und `+ ` ^\n`.yellow 
+    + `|`.yellow + `  Con descuento del ` + `${descuento}%`.bgYellow + `  =  ` + 
+    functions.facturaProducto(cantidad, precio, descuento) +  `     |`.yellow);
+    console.log(`----------------------------------------\n`.cyan);
 }
 
 const bebidaComida = (menu) => {
@@ -120,25 +120,29 @@ const bebidaComida = (menu) => {
  
  
  const interfazBebidaComida = (menu) =>{
-     console.log(`******************************************`);
-     console.log(`*           bebidas del menu             *`);
-     console.log(`******************************************`);
-     console.log(`*`  + `        ${menu}  ` +  functions.bebidaComida(menu)
-      + `            *`);
-     console.log(`******************************************\n`);
+     console.log(`-----------------------------------`.green);
+     console.log(`-`.red + `        bebidas del menu        ` + `<`.blue);
+     console.log(`-----------------------------------`.green);
+     console.log(`-`.red  + `        ` + `${menu}  ` +  functions.bebidaComida(menu)
+      + `           ` + `<`.blue);
+     console.log(`-----------------------------------\n`.green);
  }
 
  
 const salaJuegos = (juegos) => {
+    if(juegos > 4000){ 
+        let cambio = juegos - 4000
+        return ` recibe cambio de  ` + `${cambio}`.bgMagenta
+     }
     switch (juegos) {
-         case '4000' :
-             return `acceso todos`;
+         case 4000 :
+             return `acceso todos los juegos`;
              break;
-         case '3000' :
+         case  3000 :
              return `acceso consola, 2D y 3D`;
              break;
         
-         case '2000' :
+         case 2000 :
             return `acceso consola y 2D `;
             break;
    
@@ -152,83 +156,84 @@ const salaJuegos = (juegos) => {
  
  
  const interfazSalaJuegos = (juegos) =>{
-     console.log(`******************************************`);
-     console.log(`*         el precio de los juegos        *`);
-     console.log(`******************************************`);
-     console.log(`*    `  + `${juegos}  ` +  functions.salaJuegos(juegos) 
-     + `       *`);
-     console.log(`******************************************\n`);
+     console.log(`******************************************`.america);
+     console.log(`<`.red + `         el precio de los juegos        `.gray + `>`.blue);
+     console.log(`******************************************`.america);
+     console.log(`*    `.red  + `${juegos}`.bgYellow + `  `  +  functions.salaJuegos(juegos) 
+     + `       *`.blue);
+     console.log(`******************************************\n`.america);
  }
 
 const contarNumero = (entero) => {
     for(var i=0; i < entero; i++){
-      console.log(i)
+      console.log(`^`.blue + `          ` + i + `          ` + `^`.blue)
     }
-    return "termina"
+    return ''
 }
 
  
 const interfazContarNumero = (entero) =>{
-    console.log(`******************************************`);
-    console.log(`*              contar numeros            *`);
-    console.log(`******************************************`);
-    console.log(`*    `  + `${entero}  ` +  functions.contarNumero(entero) 
-    + `       *`);
-    console.log(`******************************************\n`);
+    console.log(`+++++++++++++++++++++++`.magenta);
+    console.log(`~`.magenta + `    ` + `contar numeros`.america + `   ` + `~`.magenta);
+    console.log(`+++++++++++++++++++++++`.magenta);
+    console.log(`^`.blue + `         `    +  `     ` +  functions.contarNumero(entero) + `      ` + ` ^`.blue);
+    console.log(`+++++++++++++++++++++++\n`.blue);
 }
 
 const numerosPares = par => {
     for(let i = 0; i <= par; i++) {
         if(i % 2 === 0){
-            console.log(i)
+            console.log(`~         `.yellow + i + `          ~`.yellow)
        
     }
     }
     return "";
 }
 
-const interfaznumerosPares = (par) =>{
-    console.log(`******************************************`);
-    console.log(`*         funciones numeros pares        *`);
-    console.log(`******************************************`);
-    console.log(`*    `  + `       ${par}  ` +  functions.numerosPares(par) 
-    + `       *`);
-    console.log(`******************************************\n`);
+const interfazNumerosPares = (par) =>{
+    console.log(`=======================`.magenta);
+    console.log(`=    `.magenta + `Numeros pares`.bgGreen + `    =`.magenta);
+    console.log(`=======================`.magenta);
+    console.log(`~       `.yellow + functions.numerosPares(par)  + 
+    `              ~`.yellow);
+    console.log(`=======================\n`.magenta);
 }
 
 
 const tablaMultiplicar = number => {
     for (let c = 1; c <= 10; c++) {
         const resultado = number * c;
-        console.log(`*    ${number} x ${c} = ${resultado}                  *`);
+        console.log(`*`.yellow + `         ${number} x ${c} = ${resultado}        ` 
+        +  `*`.yellow);
     }
-    return "tabla del" + ` ${number}        `
+    return "                  " 
 }
 
 const interfazTablaMultiplicar = (number) =>{
-    console.log(`***********************************`);
-    console.log(`*       tabla de multiplicar      *`);
-    console.log(`***********************************`);
-    console.log(`*               tabla del ${number}      *`)
-    console.log(`*    `  + 
-                functions.tablaMultiplicar(number)  + `       *`);
-    console.log(`***********************************\n`);
+    console.log(`*****************************`.red);
+    console.log(`*`.red + `    Tabla de multiplicar   `.cyan + `*`.red);
+    console.log(`*****************************`.red);
+    console.log(`*`.yellow + `         tabla del ${number}       ` + `*`.yellow)
+    console.log(`*    `.yellow  + 
+                functions.tablaMultiplicar(number)  + `       *`.yellow);
+    console.log(`*******************************\n`.yellow);
 }
 
 const repetirCaracter = (caracte, numer) =>{
     for (let i = 0; i < numer; i++) {
-        console.log(caracte);
+        console.log(`~`.green + `            ` + caracte  +  
+                    `                ~`.green);
       }
-    return `repetir ${caracte}  ${numer} veces`
+    return `repetir ` + `${caracte}`.bgMagenta + `  ${numer} veces`
 }
 
 const interfazRepetirCaracter = (caracte, numer) =>{
-    console.log(`******************************************`);
-    console.log(`*         funciones numeros pares        *`);
-    console.log(`******************************************`);
-    console.log(`*    `   +  functions.repetirCaracter(caracte, numer) 
-    + `       *`);
-    console.log(`******************************************\n`);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`.grey);
+    console.log(`~`.green + `        Numeros pares        ` + `~`.green);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`.grey);
+    console.log(`~    `.green   +  functions.repetirCaracter(caracte, numer) 
+    + `       ~`.green);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n`.grey);
 }
 
 const contadorBase = (base) => {
@@ -242,19 +247,20 @@ const contadorBase = (base) => {
 
     const numeroDosDigitos = numeroDeBase.length === 1 ? "0" + numeroDeBase : numeroDeBase;
 
-        console.log(`*         `    + numeroDosDigitos);
+        console.log(`*                `.yellow    +  numeroDosDigitos  +  
+        `              *`.yellow);
 
     }
-    return ""
+    return "                     "
 }
 
 const interfazContadorBase = (base) =>{
-    console.log(`******************************************`);
-    console.log(`*        contador de la base     *`);
-    console.log(`******************************************`);
-    console.log(`*    `   +  functions.contadorBase(base) 
-    + `       *`);
-    console.log(`******************************************\n`);
+    console.log(`++++++++++++++++++++++++++++++++++`.cyan);
+    console.log(`+`.yellow + `        contador de la base     `+ `+`.yellow);
+    console.log(`++++++++++++++++++++++++++++++++++`.cyan);
+    console.log(`*    `.yellow   +  functions.contadorBase(base) 
+    + `       *`.yellow);
+    console.log(`++++++++++++++++++++++++++++++++++\n`.cyan);
 }
 
 const inicioSesion = (clave) => {
@@ -264,23 +270,27 @@ const inicioSesion = (clave) => {
         intento++ 
                
         if (contraseñas.includes(claves)) {
-            console.log(`la contraseña se encuentra intento ${intento} de 3`)
-            return "";
+            console.log(`*`.magenta + ` la contraseña se encuentra intento` + 
+            ` ${intento} de 3    ` + `*`.magenta)
+            return "                              ";
         } else {
-            console.log (`la contraseña No se encuentra intento ${intento} de 3`);
+            console.log (`*`.magenta + ` la contraseña No se encuentra intento`+
+            ` ${intento} de 3 ` + `*`.magenta);
         }
     }
-    console.log("alerta de intruso")
-    return "";
+    console.log("*".magenta + `             alerta de intruso                ` +
+     "*".magenta)
+    return "                                 ";
 }
 
 const interfazIncioSesion = (clave) => {
-    console.log(`******************************************`);
-    console.log(`*            funciones claves            *`);
-    console.log(`******************************************`);
-    console.log(`*    ` + `  ` + functions.inicioSesion(clave)
-        + `       *`);
-    console.log(`******************************************\n`);
+    console.log(`************************************************`.blue);
+    console.log(`*`.blue + `                funciones claves              `.magenta  
+    + `*`.blue);
+    console.log(`************************************************`.blue);
+    console.log(`*    `.blue + `  ` + functions.inicioSesion(clave)
+        + `       *`.blue);
+    console.log(`************************************************\n`.blue);
 }
 
 const minimoMaximo = (numeros) => {
@@ -331,11 +341,13 @@ const numerosPares2 = (numeros1) => {
 };
 
 const interfazNumerosPares2 = (numeros1) => {
-    console.log(`********************************************`.blue);
-    console.log(`*`.blue + `FUNCIÓN CONTAR NÚMEROS PARES DE UN ARREGLO`.bgBlue + `*`.blue);
-    console.log(`********************************************`.blue);
-    console.log(`*       `.blue + `El arreglo es: ${numeros1}\n` + `*       `.blue + `Cantidad de números pares: ${numerosPares2(numeros1).cantidad}` + `       *`.blue);
-    console.log(`********************************************\n`.blue);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`.red);
+    console.log(`+`.grey + `     Contar numeros pares       `.blue + `+`.grey);
+    console.log(`------------------------------------------`.red);
+    console.log(`~       `.red + `Los numeros son: ${numeros1}     `+`  *\n`.grey
+     + `~       `.red + `La cantidad son: ${numerosPares2(numeros1).cantidad}`
+      + `                 *`.grey);
+    console.log(`------------------------------------------\n`.red);
 };
 
 functions.signo = signo;
@@ -353,7 +365,7 @@ functions.interfazBebidaComida = interfazBebidaComida;
 functions.salaJuegos = salaJuegos;
 functions.interfazSalaJuegos = interfazSalaJuegos;
 functions.numerosPares = numerosPares;
-functions.interfaznumerosPares = interfaznumerosPares;
+functions.interfazNumerosPares = interfazNumerosPares;
 functions.contarNumero = contarNumero;
 functions.interfazContarNumero = interfazContarNumero;
 functions.tablaMultiplicar = tablaMultiplicar;
@@ -366,6 +378,8 @@ functions.inicioSesion = inicioSesion;
 functions.interfazIncioSesion = interfazIncioSesion;
 functions.minimoMaximo = minimoMaximo;
 functions.interfazMinimoMaximo = interfazMinimoMaximo;
+functions.numerosPares2 = numerosPares2;
+functions.interfazNumerosPares2 = interfazNumerosPares2;
 
 
 module.exports = functions;
